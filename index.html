@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>秘密入口-隐藏网页入口与私密资源导航_隐秘链接集合</title>
+<meta name="description" content="秘密入口是一个汇总隐藏网页入口与私密资源导航的主题首页，梳理隐秘链接的常见类型、访问方式与安全提示，帮助访客理解秘密入口的含义并找到可用入口。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2310172b'/%3E%3Cpath d='M20 32h24M32 20v24' stroke='%236ee7ff' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='6' fill='none' stroke='%23ffd166' stroke-width='4'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0a0e18;
+  --bg2:#101728;
+  --panel:#141c30;
+  --line:#243049;
+  --ink:#e8eefc;
+  --muted:#98a6c4;
+  --cyan:#6ee7ff;
+  --gold:#ffd166;
+  --violet:#a78bfa;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(900px 520px at 82% -8%,rgba(110,231,255,.14),transparent 60%),
+    radial-gradient(760px 460px at 8% 6%,rgba(167,139,250,.14),transparent 62%),
+    var(--bg);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+/* header */
+.site-head{
+  position:sticky;top:0;z-index:40;
+  backdrop-filter:blur(12px);
+  background:rgba(10,14,24,.82);
+  border-bottom:1px solid var(--line);
+}
+.head-inner{display:flex;align-items:center;gap:18px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:19px;letter-spacing:.5px;white-space:nowrap}
+.logo svg{flex:none}
+.logo .brand{background:linear-gradient(92deg,var(--cyan),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.nav a{
+  font-size:14.5px;color:var(--muted);padding:7px 13px;border-radius:999px;
+  border:1px solid transparent;transition:.2s;
+}
+.nav a:hover{color:var(--ink);border-color:var(--line);background:rgba(110,231,255,.08)}
+/* hero */
+.hero{padding:64px 0 40px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:1px;
+  color:var(--cyan);border:1px solid rgba(110,231,255,.34);border-radius:999px;
+  padding:5px 14px;background:rgba(110,231,255,.07);margin-bottom:20px;
+}
+.tag i{width:6px;height:6px;border-radius:50%;background:var(--cyan);display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{
+  font-size:clamp(34px,5.6vw,56px);
+  line-height:1.16;margin:0 0 18px;font-weight:800;letter-spacing:2px;
+  background:linear-gradient(96deg,#ffffff 8%,var(--cyan) 52%,var(--gold) 96%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.lead{font-size:16.5px;color:#c3cee6;margin:0 0 26px;max-width:34em}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;
+  padding:12px 22px;border-radius:12px;border:1px solid transparent;transition:.22s;
+}
+.btn-main{background:linear-gradient(96deg,var(--cyan),#8bd6ff);color:#06121c;box-shadow:0 10px 30px rgba(110,231,255,.22)}
+.btn-main:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(110,231,255,.32)}
+.btn-ghost{border-color:var(--line);color:#cfd9ee;background:rgba(255,255,255,.03)}
+.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+.hero-art{
+  position:relative;border:1px solid var(--line);border-radius:22px;padding:22px;
+  background:linear-gradient(160deg,rgba(20,28,48,.92),rgba(10,14,24,.9));
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+}
+.hero-art svg{display:block;width:100%;height:auto}
+/* search */
+.search-box{
+  margin-top:30px;display:flex;gap:10px;max-width:520px;
+  background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:14px;padding:8px;
+}
+.search-box input{
+  flex:1;background:transparent;border:0;outline:none;color:var(--ink);
+  font-size:15px;padding:8px 12px;font-family:inherit;
+}
+.search-box input::placeholder{color:#6f7d9c}
+.search-box button{
+  font-family:inherit;font-size:14.5px;font-weight:600;cursor:pointer;
+  background:var(--cyan);color:#06121c;border:0;border-radius:9px;padding:9px 20px;transition:.2s;
+}
+.search-box button:hover{background:#9bf0ff}
+.search-hint{font-size:13px;color:var(--muted);margin-top:10px;min-height:20px}
+/* sections */
+section{padding:52px 0}
+.sec-head{margin-bottom:26px}
+.sec-head h2{font-size:26px;margin:0 0 8px;letter-spacing:1px}
+.sec-head p{margin:0;color:var(--muted);font-size:15px;max-width:52em}
+.kicker{font-size:12.5px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;display:block}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{
+  border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+  background:linear-gradient(170deg,rgba(20,28,48,.86),rgba(13,19,32,.86));
+  transition:.24s;
+}
+.card:hover{border-color:rgba(110,231,255,.5);transform:translateY(-3px)}
+.card .ico{
+  width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+  background:rgba(110,231,255,.1);border:1px solid rgba(110,231,255,.24);margin-bottom:14px;
+}
+.card h3{font-size:17px;margin:0 0 8px}
+.card p{margin:0;font-size:14.5px;color:#a9b6d1;line-height:1.7}
+/* two-col content */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.panel{
+  border:1px solid var(--line);border-radius:var(--radius);padding:26px;
+  background:rgba(16,23,40,.72);
+}
+.panel h3{margin:0 0 14px;font-size:19px}
+.panel p{margin:0 0 12px;color:#b3c0d9;font-size:15px}
+.panel p:last-child{margin-bottom:0}
+.steps{list-style:none;padding:0;margin:0;counter-reset:s}
+.steps li{
+  counter-increment:s;position:relative;padding:0 0 18px 44px;font-size:14.8px;color:#b9c5dd;
+}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{
+  content:counter(s);position:absolute;left:0;top:1px;width:28px;height:28px;border-radius:9px;
+  display:grid;place-items:center;font-size:13px;font-weight:700;color:var(--cyan);
+  background:rgba(110,231,255,.1);border:1px solid rgba(110,231,255,.28);
+}
+.steps b{color:var(--ink);font-weight:600}
+/* entry list */
+.entries{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.entry{
+  display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:13px;
+  border:1px solid var(--line);background:rgba(20,28,48,.66);transition:.22s;
+}
+.entry:hover{border-color:rgba(255,209,102,.52);background:rgba(255,209,102,.06)}
+.entry .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);flex:none;box-shadow:0 0 10px rgba(255,209,102,.7)}
+.entry strong{display:block;font-size:15px;margin-bottom:2px}
+.entry span{font-size:13px;color:var(--muted)}
+.entry .arrow{margin-left:auto;color:var(--muted);font-size:15px}
+/* notes */
+.note{
+  border-left:3px solid var(--violet);background:rgba(167,139,250,.07);
+  padding:16px 20px;border-radius:0 12px 12px 0;font-size:14.5px;color:#bcc7e0;margin:0;
+}
+/* download */
+.dl{
+  border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+  background:linear-gradient(120deg,rgba(20,28,48,.9),rgba(16,23,40,.72));
+  display:flex;align-items:center;gap:24px;flex-wrap:wrap;
+}
+.dl-txt{flex:1;min-width:240px}
+.dl-txt h3{margin:0 0 8px;font-size:19px}
+.dl-txt p{margin:0;color:var(--muted);font-size:14.5px}
+.btn-dl{
+  display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:600;
+  padding:12px 26px;border-radius:12px;background:rgba(110,231,255,.12);
+  border:1px solid rgba(110,231,255,.42);color:var(--cyan);
+  pointer-events:none;opacity:.92;
+}
+/* footer */
+footer{
+  border-top:1px solid var(--line);margin-top:30px;padding:36px 0 44px;
+  background:rgba(8,11,19,.7);
+}
+.foot-grid{display:flex;gap:30px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start}
+.foot-brand{max-width:340px}
+.foot-brand .logo{margin-bottom:12px;font-size:17px}
+.foot-brand p{margin:0;color:#7f8daa;font-size:13.5px;line-height:1.8}
+.foot-links{display:flex;gap:44px;flex-wrap:wrap}
+.foot-col h4{font-size:13px;color:#8f9dba;letter-spacing:1px;margin:0 0 10px;font-weight:600}
+.foot-col a{display:block;font-size:13.5px;color:#a9b6d1;padding:3px 0}
+.foot-col a:hover{color:var(--cyan)}
+.copy{width:100%;margin-top:26px;padding-top:18px;border-top:1px solid rgba(36,48,73,.7);font-size:12.5px;color:#6b7996}
+/* responsive */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .cards{grid-template-columns:1fr 1fr}
+  .split{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .head-inner{height:auto;padding:12px 0;flex-wrap:wrap;gap:10px}
+  .nav{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:2px}
+  .nav a{white-space:nowrap;font-size:13.5px;padding:6px 11px}
+  .hero{padding:40px 0 28px}
+  .lead{font-size:15.5px}
+  .cards,.entries{grid-template-columns:1fr}
+  section{padding:38px 0}
+  .sec-head h2{font-size:22px}
+  .search-box{max-width:100%}
+  .dl{padding:22px}
+  .foot-links{gap:26px}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-inner">
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#141c30" stroke="#243049"/>
+        <path d="M20 32h24M32 20v24" stroke="#6ee7ff" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="6" fill="none" stroke="#ffd166" stroke-width="4"/>
+      </svg>
+      <span class="brand">秘密入口</span>
+    </div>
+    <nav class="nav" aria-label="主导航">
+      <a href="#types">入口类型</a>
+      <a href="#howto">访问方法</a>
+      <a href="#list">入口清单</a>
+      <a href="#safe">安全提示</a>
+      <a href="#download">资源下载</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="tag"><i></i>隐藏入口 · 私密导航 · 主题首页</span>
+        <h1>秘密入口</h1>
+        <p class="lead">秘密入口指不放在常规导航里、需要特定链接或口令才能到达的网页通道。本页把常见的秘密入口类型、识别方式与访问路径集中呈现，帮助你在理解含义之后，找到真正可用的入口。</p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="#list">查看入口清单 →</a>
+          <a class="btn btn-ghost" href="#howto">了解访问方法</a>
+        </div>
+        <form class="search-box" id="searchForm" role="search" aria-label="搜索入口关键词">
+          <input type="search" id="searchInput" placeholder="输入关键词，如 隐藏、口令、跳转" aria-label="搜索入口关键词">
+          <button type="submit">筛选</button>
+        </form>
+        <p class="search-hint" id="searchHint">共收录 6 类入口，可按名称或说明筛选。</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 340 250" role="img">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#6ee7ff" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#a78bfa" stop-opacity=".55"/>
+            </linearGradient>
+          </defs>
+          <rect x="8" y="8" width="324" height="234" rx="16" fill="#0d1320" stroke="#243049"/>
+          <path d="M40 196 L92 120 L134 168 L186 78 L246 148 L300 96" fill="none" stroke="url(#g1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="186" cy="78" r="7" fill="#ffd166"/>
+          <circle cx="186" cy="78" r="14" fill="none" stroke="#ffd166" stroke-opacity=".4"/>
+          <rect x="40" y="34" width="90" height="9" rx="4.5" fill="#243049"/>
+          <rect x="40" y="52" width="56" height="9" rx="4.5" fill="#1c2740"/>
+          <rect x="214" y="34" width="86" height="26" rx="8" fill="rgba(110,231,255,.12)" stroke="rgba(110,231,255,.4)"/>
+          <rect x="226" y="44" width="62" height="6" rx="3" fill="#6ee7ff" opacity=".8"/>
+          <rect x="40" y="212" width="260" height="8" rx="4" fill="#1c2740"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPES -->
+  <section id="types">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Entry Types</span>
+        <h2>秘密入口的常见形态</h2>
+        <p>不同场景下的秘密入口承担不同用途。先分清类型，再判断某个链接是否值得信任。</p>
+      </div>
+      <div class="cards" id="typeCards">
+        <article class="card" data-key="隐藏页面 路径 未公开">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6ee7ff" stroke-width="1.8" stroke-linecap="round"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+          </div>
+          <h3>未公开的隐藏页面</h3>
+          <p>网站没有把链接放在导航栏，但页面本身仍可访问。这类秘密入口通常靠路径猜测或他人分享获得，内容多为测试页、说明页或旧版页面。</p>
+        </article>
+        <article class="card" data-key="口令 邀请 验证">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+          </div>
+          <h3>需要口令的私密通道</h3>
+          <p>访问前要求输入口令或邀请码，验证通过后才跳转到目标内容。口令型秘密入口的关键在于来源是否可靠，而非口令本身的长短。</p>
+        </article>
+        <article class="card" data-key="跳转 中间页 短链">
+          <div class="ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.8" stroke-linecap="round"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v4a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2h4"/></svg>
+          </div>
+          <h3>跳转型的中间入口</h3>
+          <p>短链或中转页先接收访问，再自动跳转到真实地址。中间页让秘密入口更难被直接搜索到，同时也让最终目的地变得不透明。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO -->
+  <section id="howto">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Access Path</span>
+        <h2>如何访问一个秘密入口</h2>
+        <p>访问流程并不复杂，难点在于确认入口来源与目标是否一致。下面四步按顺序执行，可以降低误入风险。</p>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>四步访问路径</h3>
+          <ol class="steps">
+            <li><b>确认来源</b>：先问入口链接从哪来。熟人分享、页面源码、文档说明都属于可追溯来源。</li>
+            <li><b>核对目标</b>：把链接复制到文本编辑器查看完整地址，避免被短链或伪装域名误导。</li>
+            <li><b>按提示验证</b>：若要求口令或邀请码，只使用来源方提供的原始信息，不轻信第三方转述。</li>
+            <li><b>记录结果</b>：把可用入口和失效入口分开记录，后续再访问时能省下重复尝试的时间。</li>
+          </ol>
+        </div>
+        <div class="panel">
+          <h3>判断入口是否有效的要点</h3>
+          <p>有效的秘密入口应当能稳定打开，并且页面内容与分享者描述一致。如果打开后只剩空白页或错误提示，说明入口可能已失效或已被移除。</p>
+          <p>另一个判断点是页面结构。正规站点即使页面未公开，通常仍保留统一的页头、页脚与版权信息；结构异常、大量弹窗的页面，需要提高警惕。</p>
+          <p>最后看变化频率。部分秘密入口只在特定时间开放，错过窗口就暂时不可用，这类入口更适合先收藏链接、定期回访。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIST -->
+  <section id="list">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Entry List</span>
+        <h2>入口清单</h2>
+        <p>以下为按用途归类的秘密入口条目，点击可跳转到本页对应说明区域。清单会随新条目补充更新。</p>
+      </div>
+      <div class="entries" id="entryList">
+        <a class="entry" href="#types" data-key="隐藏页面 未公开">
+          <span class="dot"></span>
+          <span><strong>隐藏页面入口</strong><span>未在导航中公开的页面通道</span></span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="entry" href="#types" data-key="口令 邀请码 私密">
+          <span class="dot"></span>
+          <span><strong>口令验证入口</strong><span>凭口令或邀请码进入的私密通道</span></span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="entry" href="#types" data-key="跳转 短链 中转">
+          <span class="dot"></span>
+          <span><strong>跳转中转入口</strong><span>经中间页再跳转的间接链接</span></span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="entry" href="#howto" data-key="访问 方法 步骤">
+          <span class="dot"></span>
+          <span><strong>访问方法说明</strong><span>四步核对与验证流程</span></span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="entry" href="#safe" data-key="安全 风险 提示">
+          <span class="dot"></span>
+          <span><strong>安全提示</strong><span>识别风险入口的常用信号</span></span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="entry" href="#download" data-key="资源 下载 清单">
+          <span class="dot"></span>
+          <span><strong>入口资源下载</strong><span>整理后的入口记录文件</span></span>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+      <p class="search-hint" id="listHint" style="margin-top:16px">共 6 条入口记录。</p>
+    </div>
+  </section>
+
+  <!-- SAFE -->
+  <section id="safe">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Safety</span>
+        <h2>访问秘密入口的安全提示</h2>
+        <p>秘密入口之所以“秘密”，往往是因为它绕开了常规审核。便利与风险同时存在，下面几点值得留意。</p>
+      </div>
+      <div class="split">
+        <div class="panel">
+          <h3>需要警惕的信号</h3>
+          <p>要求输入账号密码、支付信息或身份资料的入口，应先确认站点归属。真正的隐藏页面很少需要你重新登录一个陌生系统。</p>
+          <p>页面出现强制下载、异常弹窗或浏览器安全警告时，不要继续操作。这类秘密入口往往与恶意跳转关联。</p>
+          <p>来源不明的短链与二维码，建议先解析再决定是否访问，必要时直接放弃。</p>
+        </div>
+        <div class="panel">
+          <h3>相对稳妥的做法</h3>
+          <p>把常用入口集中记录在本地笔记，不依赖单一平台收藏，避免链接失效后无处可查。</p>
+          <p>访问前确认浏览器地址栏的域名拼写，小心形近字与多余后缀。域名是判断入口真伪最直接的依据。</p>
+          <p>对涉及个人信息的页面保持克制，能匿名浏览就不登录，能只读就不提交。</p>
+        </div>
+      </div>
+      <p class="note" style="margin-top:22px">提示：本页介绍的秘密入口属于网页访问方式的统称，不指向任何具体站点或服务，也不构成对第三方内容的推荐。</p>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="wrap">
+      <div class="dl">
+        <div class="dl-txt">
+          <h3>入口记录文件</h3>
+          <p>包含本页整理的三类秘密入口说明与访问核对步骤，方便离线查阅。</p>
+        </div>
+        <a class="btn-dl" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo">
+          <svg width="26" height="26" viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#141c30" stroke="#243049"/>
+            <path d="M20 32h24M32 20v24" stroke="#6ee7ff" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="32" cy="32" r="6" fill="none" stroke="#ffd166" stroke-width="4"/>
+          </svg>
+          <span class="brand">秘密入口</span>
+        </div>
+        <p>一个围绕秘密入口展开的主题首页，集中说明隐藏网页入口、口令通道与跳转链接的类型、访问方法与安全边界。</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>内容</h4>
+          <a href="#types">入口类型</a>
+          <a href="#howto">访问方法</a>
+          <a href="#list">入口清单</a>
+        </div>
+        <div class="foot-col">
+          <h4>说明</h4>
+          <a href="#safe">安全提示</a>
+          <a href="#download">资源下载</a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">秘密入口 · 主题首页　|　本页内容用于说明网页入口的常见形态与访问方式。</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var input = document.getElementById('searchInput');
+  var form = document.getElementById('searchForm');
+  var hint = document.getElementById('searchHint');
+  var listHint = document.getElementById('listHint');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#typeCards .card'));
+  var entries = Array.prototype.slice.call(document.querySelectorAll('#entryList .entry'));
+
+  function filter(kw){
+    kw = (kw || '').trim().toLowerCase();
+    var cCount = 0, eCount = 0;
+    cards.forEach(function(el){
+      var hit = !kw || (el.getAttribute('data-key') + ' ' + el.textContent).toLowerCase().indexOf(kw) > -1;
+      el.style.display = hit ? '' : 'none';
+      if(hit) cCount++;
+    });
+    entries.forEach(function(el){
+      var hit = !kw || (el.getAttribute('data-key') + ' ' + el.textContent).toLowerCase().indexOf(kw) > -1;
+      el.style.display = hit ? '' : 'none';
+      if(hit) eCount++;
+    });
+    hint.textContent = kw ? ('匹配到 ' + cCount + ' 类入口。') : '共收录 6 类入口，可按名称或说明筛选。';
+    listHint.textContent = kw ? ('匹配到 ' + eCount + ' 条入口记录。') : '共 6 条入口记录。';
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    filter(input.value);
+  });
+  input.addEventListener('input', function(){
+    if(input.value.trim() === ''){ filter(''); }
+  });
+  input.addEventListener('search', function(){ filter(input.value); });
+})();
+</script>
+</body>
+</html>
