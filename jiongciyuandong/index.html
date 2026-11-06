@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>囧次元动漫官网入口-囧次元动漫官网首页直达_囧次元动漫在线观看入口_囧次元动漫新番资源导航</title>
+<meta name="description" content="囧次元动漫官网入口页面，汇集囧次元动漫官网首页直达路径、在线观看入口与番剧资源导航，说明常见访问问题与使用方式，帮助动漫爱好者快速找到囧次元动漫官网入口。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161b2c'/%3E%3Ccircle cx='32' cy='32' r='19' fill='none' stroke='%23ff7a59' stroke-width='4'/%3E%3Ccircle cx='25' cy='29' r='3.2' fill='%23ffd166'/%3E%3Ccircle cx='39' cy='29' r='3.2' fill='%23ffd166'/%3E%3Cpath d='M23 40c5 4 13 4 18 0' fill='none' stroke='%23ff7a59' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#161b2c;
+    --ink-soft:#4a5169;
+    --paper:#f7f5f1;
+    --card:#ffffff;
+    --line:#e4e0d8;
+    --accent:#ff7a59;
+    --accent-deep:#e2573a;
+    --gold:#ffd166;
+    --teal:#2f9c8f;
+    --radius:16px;
+    --shadow:0 10px 30px rgba(22,27,44,.08);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px;}
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,245,241,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{
+    display:flex;align-items:center;gap:18px;
+    min-height:70px;flex-wrap:wrap;
+  }
+  .logo{
+    display:flex;align-items:center;gap:10px;
+    font-weight:800;font-size:17px;letter-spacing:.2px;
+    color:var(--ink);
+  }
+  .logo svg{width:36px;height:36px;flex:none;}
+  nav.main{
+    display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;
+    font-size:14.5px;
+  }
+  nav.main a{
+    padding:7px 12px;border-radius:999px;color:var(--ink-soft);
+    transition:background .2s,color .2s;
+  }
+  nav.main a:hover{background:#ece8e0;color:var(--ink);}
+  nav.main a.cta{
+    background:var(--ink);color:#fff;font-weight:600;
+  }
+  nav.main a.cta:hover{background:var(--accent-deep);}
+  /* ---------- hero ---------- */
+  .hero{
+    padding:56px 0 44px;
+    background:
+      radial-gradient(700px 320px at 88% -10%, rgba(255,209,102,.35), transparent 70%),
+      radial-gradient(560px 300px at 6% 0%, rgba(47,156,143,.16), transparent 70%);
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;
+  }
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:.08em;
+    color:var(--accent-deep);background:#fff2ee;
+    border:1px solid #ffd9cd;border-radius:999px;
+    padding:5px 14px;margin-bottom:18px;
+  }
+  h1{
+    font-size:clamp(28px,4.6vw,44px);
+    line-height:1.25;margin:0 0 18px;
+    letter-spacing:-.5px;font-weight:900;
+  }
+  h1 .hl{
+    background:linear-gradient(transparent 62%, var(--gold) 62%);
+    padding:0 2px;
+  }
+  .lede{
+    font-size:16.5px;color:var(--ink-soft);margin:0 0 26px;max-width:34em;
+  }
+  .actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:12px 22px;border-radius:999px;
+    font-weight:700;font-size:15px;border:1px solid transparent;
+    transition:transform .15s,box-shadow .2s,background .2s;
+  }
+  .btn-primary{background:var(--accent-deep);color:#fff;box-shadow:0 8px 20px rgba(226,87,58,.28);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(226,87,58,.34);}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line);}
+  .btn-ghost:hover{background:#f2eee6;}
+  .hero-art{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:24px;padding:22px;box-shadow:var(--shadow);
+  }
+  .hero-art svg{width:100%;height:auto;display:block;}
+  .art-caption{
+    margin-top:14px;font-size:13px;color:var(--ink-soft);
+    text-align:center;letter-spacing:.02em;
+  }
+  /* ---------- section base ---------- */
+  section{padding:52px 0;}
+  section.tight{padding:40px 0;}
+  .sec-head{max-width:640px;margin-bottom:30px;}
+  .sec-head h2{
+    font-size:clamp(21px,2.6vw,27px);margin:0 0 10px;
+    letter-spacing:-.3px;font-weight:800;
+  }
+  .sec-head p{margin:0;color:var(--ink-soft);font-size:15.5px;}
+  .tag{
+    font-size:12.5px;font-weight:700;letter-spacing:.1em;
+    color:var(--teal);text-transform:uppercase;display:block;margin-bottom:8px;
+  }
+  /* ---------- cards ---------- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:24px;
+    box-shadow:0 4px 14px rgba(22,27,44,.04);
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .card h3{
+    margin:0;font-size:17.5px;font-weight:800;letter-spacing:-.1px;
+    display:flex;align-items:center;gap:9px;
+  }
+  .dot{
+    width:9px;height:9px;border-radius:50%;background:var(--accent);flex:none;
+  }
+  .card p{margin:0;color:var(--ink-soft);font-size:14.8px;}
+  .card .mini{
+    font-size:13px;color:#7c8299;border-top:1px dashed var(--line);
+    padding-top:10px;margin-top:auto;
+  }
+  /* ---------- steps ---------- */
+  .steps{
+    background:var(--ink);color:#e9e7e2;border-radius:24px;
+    padding:38px 34px;
+  }
+  .steps h2{color:#fff;font-size:clamp(20px,2.5vw,25px);margin:0 0 8px;}
+  .steps .sub{color:#b6b9c8;margin:0 0 26px;font-size:15px;}
+  .step-list{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;list-style:none;margin:0;padding:0;}
+  .step-list li{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;padding:18px;
+  }
+  .step-no{
+    font-size:12px;font-weight:800;letter-spacing:.14em;color:var(--gold);
+    display:block;margin-bottom:8px;
+  }
+  .step-list h3{margin:0 0 6px;font-size:16px;color:#fff;}
+  .step-list p{margin:0;font-size:14px;color:#b6b9c8;line-height:1.7;}
+  /* ---------- faq ---------- */
+  .faq details{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:16px 20px;margin-bottom:12px;
+  }
+  .faq details[open]{box-shadow:0 6px 18px rgba(22,27,44,.06);}
+  .faq summary{
+    cursor:pointer;font-weight:700;font-size:15.5px;list-style:none;
+    display:flex;justify-content:space-between;gap:14px;align-items:center;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{
+    content:"+";font-size:20px;color:var(--accent-deep);font-weight:400;line-height:1;
+  }
+  .faq details[open] summary::after{content:"–";}
+  .faq p{margin:12px 0 0;color:var(--ink-soft);font-size:14.8px;}
+  /* ---------- dl strip ---------- */
+  .dl-strip{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    background:#fff4ef;border:1px solid #ffd9cd;border-radius:20px;
+    padding:26px 28px;
+  }
+  .dl-strip h2{margin:0 0 6px;font-size:19px;font-weight:800;}
+  .dl-strip p{margin:0;color:var(--ink-soft);font-size:14.6px;max-width:42em;}
+  .btn-download{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--ink);color:#fff;font-weight:700;font-size:15px;
+    padding:12px 26px;border-radius:999px;
+    pointer-events:none;opacity:.92;
+  }
+  /* ---------- footer ---------- */
+  footer.site{
+    background:var(--ink);color:#a9adbd;padding:40px 0 30px;margin-top:20px;
+  }
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px;}
+  footer.site .brand{
+    display:flex;align-items:center;gap:10px;color:#fff;font-weight:800;font-size:16px;
+    margin-bottom:12px;
+  }
+  footer.site .brand svg{width:30px;height:30px;}
+  footer.site p{margin:0;font-size:14px;line-height:1.8;}
+  footer.site h4{margin:0 0 12px;font-size:14px;color:#fff;letter-spacing:.05em;}
+  footer.site ul{list-style:none;padding:0;margin:0;font-size:14px;}
+  footer.site ul li{margin-bottom:8px;}
+  footer.site ul a:hover{color:var(--gold);}
+  .copyright{
+    border-top:1px solid rgba(255,255,255,.12);margin-top:30px;padding-top:18px;
+    font-size:13px;color:#7c8299;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+  /* ---------- responsive ---------- */
+  @media (max-width:920px){
+    .hero-grid{grid-template-columns:1fr;gap:32px;}
+    .hero-art{order:-1;}
+    .grid3{grid-template-columns:1fr 1fr;}
+    .step-list{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    .bar{min-height:64px;gap:10px;}
+    .logo{font-size:15px;}
+    .logo svg{width:30px;height:30px;}
+    nav.main{margin-left:0;width:100%;overflow-x:auto;flex-wrap:nowrap;padding-bottom:6px;font-size:14px;}
+    nav.main a{white-space:nowrap;padding:6px 10px;}
+    .hero{padding:36px 0 30px;}
+    .lede{font-size:15.5px;}
+    .btn{padding:11px 18px;font-size:14.5px;}
+    section{padding:38px 0;}
+    .grid3,.grid2{grid-template-columns:1fr;}
+    .steps{padding:26px 20px;}
+    .dl-strip{padding:22px 20px;}
+    .foot-grid{grid-template-columns:1fr;gap:24px;}
+  }
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#top" aria-label="囧次元动漫官网入口 首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#161b2c"/>
+        <circle cx="32" cy="32" r="19" fill="none" stroke="#ff7a59" stroke-width="4"/>
+        <circle cx="25" cy="29" r="3.2" fill="#ffd166"/>
+        <circle cx="39" cy="29" r="3.2" fill="#ffd166"/>
+        <path d="M23 40c5 4 13 4 18 0" fill="none" stroke="#ff7a59" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <span>囧次元动漫官网入口</span>
+    </a>
+    <nav class="main" aria-label="主导航">
+      <a href="#entry">官网入口</a>
+      <a href="#watch">观看方式</a>
+      <a href="#library">番剧导航</a>
+      <a href="#faq">常见问题</a>
+      <a class="cta" href="#entry">直达入口</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">动漫在线观看 · 入口导航</span>
+        <h1>囧次元动漫官网入口</h1>
+        <p class="lede">想找囧次元动漫官网入口的动漫爱好者，通常关心的是首页能否直达、番剧能否顺利播放、更新是否及时。本页把囧次元动漫官网入口的访问路径、观看方式与资源分布整理在一起，让第一次接触囧次元动漫官网入口的人也能按步骤上手。</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#entry">前往官网入口 →</a>
+          <a class="btn btn-ghost" href="#library">查看番剧导航</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 420 300" role="img" aria-label="番剧播放界面示意图">
+          <rect x="0" y="0" width="420" height="300" rx="16" fill="#161b2c"/>
+          <rect x="18" y="18" width="384" height="180" rx="10" fill="#20273d"/>
+          <circle cx="210" cy="108" r="34" fill="#ff7a59" opacity=".95"/>
+          <path d="M200 92 L232 108 L200 124 Z" fill="#fff"/>
+          <rect x="18" y="216" width="120" height="12" rx="6" fill="#ffd166"/>
+          <rect x="18" y="240" width="240" height="10" rx="5" fill="#3a4259"/>
+          <rect x="18" y="260" width="170" height="10" rx="5" fill="#3a4259"/>
+          <rect x="330" y="216" width="72" height="54" rx="8" fill="#2f9c8f"/>
+          <path d="M354 232 l20 11 -20 11 z" fill="#fff" opacity=".9"/>
+        </svg>
+        <p class="art-caption">播放页、番剧列表与更新提示，是官网入口的三大落点</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRY -->
+  <section id="entry">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">Entry</span>
+        <h2>囧次元动漫官网入口的三种到达方式</h2>
+        <p>入口是否顺畅，直接决定后续观看体验。下面三种方式是访问囧次元动漫官网入口时最常见的路径，各自适合不同习惯的用户。</p>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <h3><span class="dot"></span>浏览器直输域名</h3>
+          <p>在手机或电脑浏览器地址栏输入官网域名，是最稳妥的囧次元动漫官网入口方式。建议收藏首页地址，避免每次重新搜索。</p>
+          <span class="mini">适合：长期追番、习惯网页端观看的用户</span>
+        </div>
+        <div class="card">
+          <h3><span class="dot"></span>收藏夹与首页跳转</h3>
+          <p>首次通过囧次元动漫官网入口进入后，把首页加入书签，下次从收藏夹打开即可，减少误入仿冒页面的可能。</p>
+          <span class="mini">适合：固定设备、每日查看更新的用户</span>
+        </div>
+        <div class="card">
+          <h3><span class="dot"></span>站内搜索定位</h3>
+          <p>进入囧次元动漫官网入口后，用站内搜索输入番剧名，比在外部搜索更容易找到对应剧集与播放线路。</p>
+          <span class="mini">适合：目标明确、只想看某一部作品的用户</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WATCH -->
+  <section class="tight" id="watch">
+    <div class="wrap">
+      <div class="steps">
+        <h2>从囧次元动漫官网入口到开始播放</h2>
+        <p class="sub">把访问流程拆成三步，新用户按顺序操作即可，不必在页面之间反复跳转。</p>
+        <ol class="step-list">
+          <li>
+            <span class="step-no">STEP 01</span>
+            <h3>确认首页加载</h3>
+            <p>打开囧次元动漫官网入口后，先确认首页推荐位与番剧列表正常显示，说明当前线路可用。</p>
+          </li>
+          <li>
+            <span class="step-no">STEP 02</span>
+            <h3>挑选番剧与剧集</h3>
+            <p>在分类或搜索中找到作品，进入详情页选择集数，留意更新标记，避免看到未上线的集数。</p>
+          </li>
+          <li>
+            <span class="step-no">STEP 03</span>
+            <h3>切换线路播放</h3>
+            <p>若某条线路加载缓慢，可在播放页内切换其他线路；这是通过囧次元动漫官网入口观看时最常用的排障动作。</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIBRARY -->
+  <section id="library">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">Library</span>
+        <h2>通过囧次元动漫官网入口能找到哪些内容</h2>
+        <p>官网入口承载的内容以番剧为主，按更新节奏与题材归类，便于不同观看习惯的用户快速定位。</p>
+      </div>
+      <div class="grid2">
+        <div class="card">
+          <h3><span class="dot"></span>当季新番与连载更新</h3>
+          <p>新番通常按周更新，首页会给出更新提示。从囧次元动漫官网入口进入后，优先看首页推荐区，能最快了解本周上线了哪些剧集。</p>
+          <span class="mini">关注点：更新频率、集数进度</span>
+        </div>
+        <div class="card">
+          <h3><span class="dot"></span>完结番剧与补番列表</h3>
+          <p>已完结作品适合连续观看，可按题材与年份筛选。补番时建议先看简介与集数，再决定是否从第一集开始。</p>
+          <span class="mini">关注点：题材分类、总集数</span>
+        </div>
+        <div class="card">
+          <h3><span class="dot"></span>剧场版与特别篇</h3>
+          <p>部分作品附带剧场版或特别篇，入口位置与正片分开。搜索时加作品全名，更容易在囧次元动漫官网入口内找到对应条目。</p>
+          <span class="mini">关注点：条目命名、播放顺序</span>
+        </div>
+        <div class="card">
+          <h3><span class="dot"></span>题材与专题聚合</h3>
+          <p>热血、日常、恋爱、奇幻等题材各有聚合页，适合没有明确目标时浏览。囧次元动漫官网入口的导航区通常提供这些分类入口。</p>
+          <span class="mini">关注点：分类维度、专题页</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tag">FAQ</span>
+        <h2>访问囧次元动漫官网入口的常见疑问</h2>
+        <p>以下问题来自用户查找入口时最常遇到的情形，回答以实际使用流程为依据。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>囧次元动漫官网入口打不开怎么办？</summary>
+          <p>先检查网络是否正常，再尝试更换浏览器或清除缓存。若仍无法打开，可稍后重试，或通过已收藏的首页地址再次进入，避免使用来源不明的跳转链接。</p>
+        </details>
+        <details>
+          <summary>手机上能直接访问囧次元动漫官网入口吗？</summary>
+          <p>可以。官网入口适配手机浏览器，页面会按屏幕宽度调整布局。建议横屏观看番剧，竖屏浏览列表与简介，操作更顺手。</p>
+        </details>
+        <details>
+          <summary>播放卡顿与入口有关吗？</summary>
+          <p>通常与线路和网络状况有关，而非入口本身。进入播放页后切换到其他线路，或降低清晰度，多数卡顿可以得到缓解。</p>
+        </details>
+        <details>
+          <summary>怎样避免进到仿冒的囧次元动漫官网入口？</summary>
+          <p>以官方公布的域名为准，不点击陌生群聊或广告中的短链接。首次确认无误后加入书签，以后从收藏夹进入最稳妥。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD STRIP -->
+  <section class="tight">
+    <div class="wrap">
+      <div class="dl-strip">
+        <div>
+          <h2>入口使用说明下载</h2>
+          <p>包含囧次元动漫官网入口的访问步骤、线路切换与常见问题速查，适合保存到本地随时查看。当前版本为页面说明文档。</p>
+        </div>
+        <a class="btn-download" href="#" data-download-placeholder="true" aria-disabled="true" tabindex="-1">
+          <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13h10" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          下载
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#ff7a59"/>
+            <circle cx="25" cy="29" r="3.2" fill="#161b2c"/>
+            <circle cx="39" cy="29" r="3.2" fill="#161b2c"/>
+            <path d="M23 40c5 4 13 4 18 0" fill="none" stroke="#161b2c" stroke-width="3.4" stroke-linecap="round"/>
+          </svg>
+          <span>囧次元动漫官网入口</span>
+        </div>
+        <p>围绕囧次元动漫官网入口提供访问路径、观看方式与番剧导航说明，帮助动漫爱好者减少查找入口的时间，把精力留给作品本身。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#entry">官网入口</a></li>
+          <li><a href="#watch">观看方式</a></li>
+          <li><a href="#library">番剧导航</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用提示</h4>
+        <ul>
+          <li>以官方域名为准，谨防仿冒</li>
+          <li>收藏首页，减少重复搜索</li>
+          <li>卡顿时优先切换线路</li>
+          <li>注意合理安排观看时间</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>囧次元动漫官网入口 · 动漫在线观看入口导航页</span>
+      <span>页面内容为入口使用说明，具体资源以官网实际展示为准</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
