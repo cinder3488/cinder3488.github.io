@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看片网站进不去-看片网站打不开怎么办_看片网站无法访问</title>
+<meta name="description" content="看片网站进不去时，先分清是网络、DNS、浏览器还是站点本身的问题。这里按现象给出可操作的排查顺序与替代访问思路，帮助判断看片网站进不去的具体原因。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111c2e'/%3E%3Cpath d='M24 18l22 14-22 14z' fill='%23ffb547'/%3E%3Ccircle cx='17' cy='17' r='4' fill='%23ff5a5f'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#101a2b;
+  --ink-soft:#3d4a60;
+  --paper:#f5f2ec;
+  --card:#ffffff;
+  --line:#e2dcd1;
+  --amber:#f0a02a;
+  --amber-deep:#d9820d;
+  --red:#e2493f;
+  --teal:#1f8a7a;
+  --radius:14px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+img,svg{max-width:100%;display:block;}
+.wrap{width:min(1120px,92vw);margin:0 auto;}
+
+/* header */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:rgba(245,242,236,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  display:flex;align-items:center;gap:22px;
+  padding:12px 0;
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  font-weight:800;font-size:17px;letter-spacing:.2px;
+  color:var(--ink);
+  flex-shrink:0;
+}
+.logo .mark{
+  width:36px;height:36px;border-radius:10px;
+  background:linear-gradient(145deg,#1b2942,#101a2b);
+  display:grid;place-items:center;
+  box-shadow:0 3px 10px rgba(16,26,43,.25);
+}
+.logo .mark svg{width:22px;height:22px;}
+nav.main{margin-left:auto;}
+nav.main ul{
+  display:flex;gap:20px;list-style:none;margin:0;padding:0;
+  font-size:14.5px;color:var(--ink-soft);font-weight:500;
+}
+nav.main a{padding:6px 2px;border-bottom:2px solid transparent;transition:.2s;}
+nav.main a:hover{color:var(--ink);border-bottom-color:var(--amber);}
+.nav-cta{
+  font-size:14px;font-weight:700;
+  background:var(--ink);color:#fff;
+  padding:8px 16px;border-radius:999px;
+  white-space:nowrap;
+  transition:.2s;
+}
+.nav-cta:hover{background:var(--amber-deep);}
+.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:13px;color:var(--ink);}
+
+/* hero */
+.hero{
+  position:relative;
+  padding:56px 0 44px;
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    radial-gradient(560px 320px at 88% 8%,rgba(240,160,42,.20),transparent 70%),
+    radial-gradient(420px 300px at 6% 92%,rgba(31,138,122,.14),transparent 70%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;letter-spacing:.6px;
+  color:var(--amber-deep);
+  background:#fff4e0;
+  border:1px solid #f6dcb0;
+  padding:5px 12px;border-radius:999px;
+  margin-bottom:18px;
+}
+h1{
+  font-size:clamp(30px,4.6vw,50px);
+  line-height:1.18;
+  margin:0 0 18px;
+  letter-spacing:-.5px;
+  font-weight:900;
+}
+h1 .bar{
+  display:block;
+  width:64px;height:6px;border-radius:4px;
+  background:linear-gradient(90deg,var(--red),var(--amber));
+  margin-top:20px;
+}
+.hero p.lead{
+  font-size:16.5px;color:var(--ink-soft);
+  margin:0 0 26px;max-width:44ch;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-weight:700;font-size:15px;
+  padding:12px 22px;border-radius:999px;
+  transition:.2s;border:1px solid transparent;
+}
+.btn-primary{background:var(--ink);color:#fff;box-shadow:0 6px 18px rgba(16,26,43,.22);}
+.btn-primary:hover{background:var(--amber-deep);box-shadow:0 6px 18px rgba(217,130,13,.3);}
+.btn-ghost{border-color:var(--ink);color:var(--ink);}
+.btn-ghost:hover{background:var(--ink);color:#fff;}
+.hero-note{font-size:13px;color:#7a8494;margin-top:14px;}
+
+/* hero visual */
+.screen-card{
+  position:relative;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:16px;
+  box-shadow:0 18px 40px -18px rgba(16,26,43,.35);
+  transform:rotate(-1.2deg);
+}
+.screen-bar{display:flex;gap:6px;margin-bottom:12px;}
+.screen-bar i{width:9px;height:9px;border-radius:50%;background:#d8d2c6;display:block;}
+.screen-bar i:nth-child(1){background:var(--red);}
+.screen-bar i:nth-child(2){background:var(--amber);}
+.screen-bar i:nth-child(3){background:var(--teal);}
+.screen-body{
+  border-radius:10px;
+  background:#101a2b;
+  min-height:190px;
+  display:grid;place-items:center;
+  padding:24px;
+  position:relative;
+  overflow:hidden;
+}
+.screen-body::after{
+  content:"";
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 3px 4px);
+}
+.screen-body svg{width:74px;height:74px;position:relative;z-index:1;}
+.screen-tag{
+  position:absolute;bottom:-14px;right:18px;
+  background:var(--red);color:#fff;
+  font-size:12.5px;font-weight:700;
+  padding:6px 14px;border-radius:999px;
+  box-shadow:0 6px 14px rgba(226,73,63,.35);
+}
+
+/* section base */
+section{padding:48px 0;}
+.sec-head{margin-bottom:26px;max-width:62ch;}
+.sec-tag{
+  font-size:12.5px;font-weight:800;letter-spacing:1.4px;
+  color:var(--teal);text-transform:uppercase;
+  display:block;margin-bottom:8px;
+}
+h2{
+  font-size:clamp(22px,2.9vw,30px);
+  margin:0 0 10px;font-weight:800;letter-spacing:-.3px;
+}
+.sec-head p{margin:0;color:var(--ink-soft);font-size:15px;}
+
+/* symptom cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 20px;
+  transition:.22s;
+  position:relative;
+  overflow:hidden;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px rgba(16,26,43,.4);border-color:#d4cbba;}
+.card .ico{
+  width:40px;height:40px;border-radius:11px;
+  display:grid;place-items:center;margin-bottom:14px;
+}
+.card .ico svg{width:22px;height:22px;}
+.card h3{font-size:16.5px;margin:0 0 8px;font-weight:800;}
+.card p{margin:0;font-size:14.2px;color:var(--ink-soft);}
+.i-red{background:#fdecea;}
+.i-amber{background:#fdf3e2;}
+.i-teal{background:#e6f4f1;}
+.i-blue{background:#e9eefb;}
+
+/* steps */
+.steps-panel{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:30px clamp(18px,3vw,38px);
+}
+.steps{list-style:none;margin:0;padding:0;counter-reset:step;}
+.steps li{
+  position:relative;
+  padding:0 0 26px 58px;
+  counter-increment:step;
+}
+.steps li:last-child{padding-bottom:0;}
+.steps li::before{
+  content:counter(step,decimal-leading-zero);
+  position:absolute;left:0;top:0;
+  width:40px;height:40px;border-radius:12px;
+  background:var(--ink);color:var(--amber);
+  font-weight:800;font-size:14px;
+  display:grid;place-items:center;
+  letter-spacing:.5px;
+}
+.steps li::after{
+  content:"";position:absolute;left:19px;top:44px;bottom:6px;
+  width:2px;background:linear-gradient(var(--line),transparent);
+}
+.steps li:last-child::after{display:none;}
+.steps h3{font-size:16.5px;margin:6px 0 6px;font-weight:800;}
+.steps p{margin:0;font-size:14.5px;color:var(--ink-soft);}
+.steps code{
+  background:#f0ece3;border-radius:5px;padding:1px 7px;
+  font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:13px;color:var(--ink);
+}
+
+/* split */
+.split{
+  display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;
+}
+.prose p{font-size:15.2px;color:var(--ink-soft);margin:0 0 14px;}
+.prose strong{color:var(--ink);}
+.pull{
+  border-left:4px solid var(--amber);
+  background:#fff8ec;
+  border-radius:0 12px 12px 0;
+  padding:16px 20px;
+  font-size:14.8px;
+  color:#6b5326;
+  margin-top:8px;
+}
+.checklist{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:16px;padding:24px;
+}
+.checklist h3{font-size:15.5px;margin:0 0 14px;font-weight:800;display:flex;align-items:center;gap:8px;}
+.checklist ul{list-style:none;margin:0;padding:0;}
+.checklist li{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:14.3px;color:var(--ink-soft);
+  padding:9px 0;border-bottom:1px dashed var(--line);
+}
+.checklist li:last-child{border-bottom:none;}
+.checklist li svg{width:17px;height:17px;flex-shrink:0;margin-top:4px;}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+details{
+  background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:16px 20px;
+  transition:.2s;
+}
+details[open]{border-color:#d4cbba;box-shadow:0 10px 26px -20px rgba(16,26,43,.5);}
+details summary{
+  cursor:pointer;font-weight:700;font-size:15px;
+  list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;
+}
+details summary::-webkit-details-marker{display:none;}
+details summary::after{
+  content:"+";font-size:19px;color:var(--amber-deep);font-weight:800;line-height:1;
+  transition:.2s;
+}
+details[open] summary::after{content:"–";}
+details p{margin:12px 0 0;font-size:14.2px;color:var(--ink-soft);}
+
+/* closing */
+.closing{
+  background:linear-gradient(140deg,#101a2b,#1c2c48);
+  color:#e8ecf4;
+  border-radius:22px;
+  padding:clamp(30px,5vw,52px);
+  position:relative;overflow:hidden;
+}
+.closing::before{
+  content:"";position:absolute;right:-60px;top:-60px;
+  width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(240,160,42,.35),transparent 70%);
+}
+.closing h2{color:#fff;position:relative;}
+.closing p{color:#b9c3d4;font-size:15px;max-width:56ch;position:relative;}
+.closing .btn-primary{background:var(--amber);color:#101a2b;position:relative;}
+.closing .btn-primary:hover{background:#ffbe52;}
+.closing .btn-ghost{border-color:#4b5b78;color:#e8ecf4;position:relative;}
+.closing .btn-ghost:hover{background:#26374f;color:#fff;}
+
+/* footer */
+footer.site{
+  border-top:1px solid var(--line);
+  padding:36px 0 44px;
+  font-size:13.5px;color:#79828f;
+}
+.foot-top{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:flex-start;margin-bottom:22px;}
+.foot-brand{max-width:320px;}
+.foot-brand .logo{font-size:15.5px;margin-bottom:10px;}
+.foot-brand p{margin:0;font-size:13.2px;line-height:1.7;}
+.foot-links{display:flex;gap:44px;flex-wrap:wrap;}
+.foot-links h4{font-size:13px;margin:0 0 10px;color:var(--ink);font-weight:800;}
+.foot-links ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;}
+.foot-links a:hover{color:var(--amber-deep);}
+.foot-bottom{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:34px;}
+  .screen-card{transform:none;max-width:420px;}
+  .cards{grid-template-columns:1fr 1fr;}
+  .split,.faq{grid-template-columns:1fr;}
+}
+@media (max-width:680px){
+  nav.main{
+    display:none;
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:10px 4vw 16px;
+  }
+  nav.main.open{display:block;}
+  nav.main ul{flex-direction:column;gap:2px;font-size:15px;}
+  nav.main a{display:block;padding:10px 6px;border-bottom:1px solid var(--line);}
+  .menu-btn{display:block;margin-left:auto;}
+  .nav-cta{display:none;}
+  .cards{grid-template-columns:1fr;}
+  .hero{padding:36px 0 30px;}
+  section{padding:34px 0;}
+  h1 .bar{margin-top:16px;}
+  .foot-links{gap:28px;}
+}
+</style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="#f0a02a"/></svg>
+      </span>
+      看片网站进不去
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mainnav" onclick="var n=document.getElementById('mainnav');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o);">菜单</button>
+    <nav class="main" id="mainnav" aria-label="主导航">
+      <ul>
+        <li><a href="#symptom">常见现象</a></li>
+        <li><a href="#steps">排查顺序</a></li>
+        <li><a href="#judge">原因判断</a></li>
+        <li><a href="#faq">问答</a></li>
+      </ul>
+    </nav>
+    <a class="nav-cta" href="#steps">开始排查</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">访问故障排查 · 从现象找原因</span>
+        <h1>看片网站进不去<span class="bar"></span></h1>
+        <p class="lead">看片网站进不去，先别急着换站点。多数情况能通过现象定位到网络、域名解析、浏览器缓存或站点自身状态中的某一层。按顺序看一遍，比反复刷新更快。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#steps">按步骤排查
+            <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#symptom">先看现象分类</a>
+        </div>
+        <p class="hero-note">页面内容只讨论访问层面的排查，不涉及任何站点的具体影片或内容资源。</p>
+      </div>
+      <div class="screen-card" aria-hidden="true">
+        <div class="screen-bar"><i></i><i></i><i></i></div>
+        <div class="screen-body">
+          <svg viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="24" stroke="#f0a02a" stroke-width="3" stroke-dasharray="5 7"/>
+            <path d="M26 22l16 10-16 10z" fill="#f0a02a"/>
+            <circle cx="50" cy="14" r="5" fill="#e2493f"/>
+          </svg>
+        </div>
+        <span class="screen-tag">连接中断</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SYMPTOMS -->
+  <section id="symptom">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">现象分类</span>
+        <h2>看片网站进不去，先分清是哪一种打不开</h2>
+        <p>同样是“进不去”，浏览器给出的反馈差别很大。先看清报错文字和页面表现，后面的排查方向才不会走偏。</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="ico i-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e2493f" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg>
+          </div>
+          <h3>提示找不到服务器</h3>
+          <p>页面显示 DNS 解析失败或“无法访问此网站”。通常是域名解析层出问题，与影片内容无关，可先换一个网络环境再试。</p>
+        </div>
+        <div class="card">
+          <div class="ico i-amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d9820d" stroke-width="2" stroke-linecap="round"><path d="M12 3l9 16H3z"/><path d="M12 9v4M12 16v.5"/></svg>
+          </div>
+          <h3>长时间转圈后超时</h3>
+          <p>连接建立后没有响应，常见于线路拥堵、代理设置异常或站点服务器负载过高。看片网站进不去时，这类现象占比不低。</p>
+        </div>
+        <div class="card">
+          <div class="ico i-teal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1f8a7a" stroke-width="2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 12h8"/></svg>
+          </div>
+          <h3>页面打开但内容空白</h3>
+          <p>域名能连上，只是播放区或列表没有加载出来。多半是脚本被拦截、缓存过期或浏览器扩展存在干扰。</p>
+        </div>
+        <div class="card">
+          <div class="ico i-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#3a5bbf" stroke-width="2" stroke-linecap="round"><path d="M4 12a8 8 0 0116 0"/><path d="M7 12a5 5 0 0110 0"/><circle cx="12" cy="16" r="2"/></svg>
+          </div>
+          <h3>反复跳转或证书告警</h3>
+          <p>地址被重定向到其他页面，或出现证书不受信任提示。此时应停止输入任何账号信息，先确认访问地址是否被改动。</p>
+        </div>
+        <div class="card">
+          <div class="ico i-amber">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#d9820d" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h10M4 18h7"/></svg>
+          </div>
+          <h3>只有某个设备进不去</h3>
+          <p>手机能开、电脑打不开，或反过来。说明问题更可能在本地设备设置，而不在站点整体，可优先检查本机网络与浏览器。</p>
+        </div>
+        <div class="card">
+          <div class="ico i-red">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#e2493f" stroke-width="2" stroke-linecap="round"><path d="M3 3l18 18"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <h3>所有设备同时失效</h3>
+          <p>同一时间多处都进不去，更像站点侧的状态变化。可以稍后重试，同时留意地址是否已更换，避免误入仿冒页面。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section id="steps">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">排查顺序</span>
+        <h2>从本地到远端的五步排查</h2>
+        <p>顺序按“改动成本由低到高”排列。每一步都只做一件事，做完立刻刷新验证，方便确认是哪一步起了作用。</p>
+      </div>
+      <div class="steps-panel">
+        <ol class="steps">
+          <li>
+            <h3>换一个网络环境验证</h3>
+            <p>先在手机流量与家庭 Wi-Fi 之间切换。如果换网络就能打开，问题基本锁定在原网络的线路或运营商侧，此时不必继续折腾浏览器。</p>
+          </li>
+          <li>
+            <h3>检查域名解析是否正常</h3>
+            <p>在电脑终端执行 <code>nslookup 域名</code>，看是否能返回有效地址。若解析为空或指向异常地址，看片网站进不去的原因通常就在解析这一层。</p>
+          </li>
+          <li>
+            <h3>清理缓存与站点数据</h3>
+            <p>清空浏览器缓存和 Cookie，或用无痕窗口重新打开。旧缓存与失效 Cookie 常会让人误以为站点已经无法访问。</p>
+          </li>
+          <li>
+            <h3>临时关闭扩展与代理</h3>
+            <p>广告拦截、脚本拦截类扩展以及系统代理，都可能拦截页面请求。逐个关闭后重试，能快速缩小干扰来源的范围。</p>
+          </li>
+          <li>
+            <h3>确认地址与站点状态</h3>
+            <p>核对当前使用的地址是否与已知一致，警惕拼写相近的仿冒域名；若多处同时失效，则以稍后重试为主，不在可疑页面上填写任何信息。</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUDGE -->
+  <section id="judge">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">原因判断</span>
+        <h2>把现象和原因对上号</h2>
+        <p>排查的价值在于缩小范围，而不是把所有方法都试一遍。下面把常见现象与对应层级放在一起对照，方便快速取舍。</p>
+      </div>
+      <div class="split">
+        <div class="prose">
+          <p>如果换网络后立刻恢复，说明本地网络与站点之间的链路存在差异，这类情况通常不需要修改浏览器设置。反之，若多种网络都失败，且同一时间其他设备也打不开，就要把注意力放到<strong>域名与站点状态</strong>上。</p>
+          <p>“页面能打开但内容空白”是另一类问题。域名解析成功、连接已建立，说明访问链路是通的，剩下的多半是脚本加载、缓存版本或扩展拦截。此时清理缓存、关闭拦截扩展，比反复切换网络更有效。</p>
+          <p>证书告警与异常跳转需要单独对待。正常站点不会突然要求重新信任证书，也不会把页面跳转到无关地址。遇到这类提示，应停止继续操作，核对地址来源后再决定是否访问。看片网站进不去时，最不该做的就是随手点击搜索结果里的陌生链接。</p>
+          <div class="pull">判断原则：先确认“是所有设备都失败，还是只有当前设备失败”。这一句话就能把排查范围砍掉一半。</div>
+        </div>
+        <aside class="checklist">
+          <h3>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1f8a7a" stroke-width="2.2" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>
+            排查时随身核对
+          </h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#f0a02a" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>当前使用的网络是流量还是 Wi-Fi</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#f0a02a" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>浏览器报错文字的具体表述</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#f0a02a" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>是否只在一台设备上出现</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#f0a02a" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>地址是否与以往完全一致</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#f0a02a" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>近期是否安装过拦截类扩展</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="#f0a02a" stroke-width="2.4" stroke-linecap="round"><path d="M4 12l5 5L20 6"/></svg>页面是否出现证书或跳转提示</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-tag">问答</span>
+        <h2>关于看片网站进不去的常见疑问</h2>
+        <p>以下回答只针对访问层面，不涉及具体站点的内容与资源情况。</p>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>换了浏览器还是进不去，说明什么？</summary>
+          <p>说明问题大概率不在浏览器本身，而在于网络链路或域名解析。建议回到第一步换网络验证，并检查解析结果是否正常。</p>
+        </details>
+        <details>
+          <summary>无痕窗口能打开，普通窗口不行？</summary>
+          <p>这是缓存或 Cookie 存在冲突的典型表现。清理该站点的缓存与站点数据，或继续使用无痕窗口，通常就能恢复正常访问。</p>
+        </details>
+        <details>
+          <summary>只有手机连流量能进，家里 Wi-Fi 不行？</summary>
+          <p>属于本地网络层面的差异。可以重启路由器、更换 DNS 设置再试。若依然失败，则按线路问题处理，不必继续改动手机设置。</p>
+        </details>
+        <details>
+          <summary>出现证书警告还能继续访问吗？</summary>
+          <p>不建议。证书告警意味着连接对象无法被确认，继续访问可能把信息暴露给非预期的一方。请先核对地址来源，再决定是否访问。</p>
+        </details>
+        <details>
+          <summary>看片网站进不去，是不是站点已经关闭？</summary>
+          <p>不能仅凭一次打不开就下结论。若多网络、多设备在同一时段全部失败，才更接近站点侧变化。此时以稍后重试为宜。</p>
+        </details>
+        <details>
+          <summary>多久重试一次比较合适？</summary>
+          <p>没有固定标准。短时间高频刷新既无法加快恢复，也可能触发访问限制。间隔一段时间再试，更利于判断是否已经恢复。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section>
+    <div class="wrap">
+      <div class="closing">
+        <h2>排查完仍然看片网站进不去</h2>
+        <p>把上面五步走完，基本能判断故障落在本地网络、解析、浏览器还是站点侧。若结论指向站点侧，重试与核对地址是更稳妥的做法；若指向本地，则按对应层级处理即可。记录每次改动后的结果，下一次遇到同样情况会更快。</p>
+        <div class="hero-actions" style="margin-top:22px;">
+          <a class="btn btn-primary" href="#steps">回到排查步骤</a>
+          <a class="btn btn-ghost" href="#symptom">重新对照现象</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="logo" href="#top">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5l11 7-11 7z" fill="#f0a02a"/></svg>
+          </span>
+          看片网站进不去
+        </a>
+        <p>围绕“看片网站进不去”这一访问现象，整理现象分类、排查顺序与原因判断，帮助访问者按层级定位问题。</p>
+      </div>
+      <div class="foot-links">
+        <div>
+          <h4>页面导航</h4>
+          <ul>
+            <li><a href="#symptom">常见现象</a></li>
+            <li><a href="#steps">排查顺序</a></li>
+            <li><a href="#judge">原因判断</a></li>
+            <li><a href="#faq">问答</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>相关排查</h4>
+          <ul>
+            <li><a href="#steps">域名解析检查</a></li>
+            <li><a href="#steps">浏览器缓存清理</a></li>
+            <li><a href="#judge">代理与扩展干扰</a></li>
+            <li><a href="#judge">证书与跳转提示</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>看片网站进不去 · 访问排查主题页</span>
+      <span>内容仅讨论访问层面问题</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+          </html>
